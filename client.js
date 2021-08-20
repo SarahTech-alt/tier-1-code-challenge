@@ -59,18 +59,35 @@ $(document).ready(function() {
 
   // 6. Write a function that takes in an array. The function will use a for-loop and returns the sum of all the scores in the given array.
     //tiles.scores
-    let sum = 0;
 
     function sumItems( arrayofItems ){
-      for (let items of arrayofItems){
-        sum += items;
+      let sum = 0; // creating variable to hold result
+      for (let items of arrayofItems){ // looping through items in the array
+        sum += items; // add each item to sum
       }
-      console.log(sum);
+      return sum; //return sum
     }
 
-    let numbers = [2,1,3,5];
-      sumItems(numbers);
   //7. Use the function above to get the total score for myScrabbleTiles and assign the value to a variable called "myScore".
+
+  let tileScoreArray = []; //creating array to hold the tile scores
+
+  for (tiles of myScrabbleTiles){
+    tileScoreArray.push(tiles.score); // for each item in myScrabbleTiles add the 'score' value to myScrabbleTiles array
+  }
+
+    let myScore = sumItems(tileScoreArray); // sum the scores of the titles using sumItems function, store as variable 'myScore'
+    console.log(`This should equal 30: ${myScore}`); // checking output
+
+  // function getTileScores(collection){
+  //   let tileValue = [];
+  //   for (tiles in myScrabbleTiles){
+  //     let eachTile = myScrabbleTiles[tiles];
+  //     tileValue.push(eachTile.score);
+  //   } sumItems(tileValue);
+  // }
+  //
+  // console.log(getTileScores(myScrabbleTiles));
 
   // 8. Check whether or not your score is higher than the highScore.
     // 8-1 If your score is higher, change highScore to the new high score.
