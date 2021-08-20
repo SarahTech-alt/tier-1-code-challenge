@@ -79,26 +79,29 @@ $(document).ready(function() {
     let myScore = sumItems(tileScoreArray); // sum the scores of the titles using sumItems function, store as variable 'myScore'
     console.log(`This should equal 30: ${myScore}`); // checking output
 
-  // function getTileScores(collection){
-  //   let tileValue = [];
-  //   for (tiles in myScrabbleTiles){
-  //     let eachTile = myScrabbleTiles[tiles];
-  //     tileValue.push(eachTile.score);
-  //   } sumItems(tileValue);
-  // }
-  //
-  // console.log(getTileScores(myScrabbleTiles));
-
   // 8. Check whether or not your score is higher than the highScore.
     // 8-1 If your score is higher, change highScore to the new high score.
 
+    console.log("Is my score higher than the high score? ", myScore > highScore); // returns boolean
+
+    if (myScore > highScore){
+      highScore = myScore; // if my score is higher than the high score make high score equal to my score
+    }
+
+    console.log(`My score of ${myScore} is now set to the high score of ${highScore}`); // checking output
 
 // STRETCH GOALS!!!
 
   // 9. Using jQuery, Append to the DOM the highScore value.
+    $("#myHighScore").append(`${highScore}!`).css("font-size","5em"); // adding high score to the DOM with styling
 
   // 10. Using jQuery, Append to the DOM myScrabbleTiles as an unordered list
-
+      for (let tiles of myScrabbleTiles){
+        console.log(tiles); //checking loop operation
+        let tileTitle = tiles.title; //setting attribute variable to increase readability
+        let tileScore = tiles.score; //setting attribute variable to increase readability
+          $("#myTiles").append(`<li>Letter: ${tileTitle} Score: ${tileScore}</li>`).css("font-size", "1em")
+      }
 
 // DO NOT WRITE CODE BEYOND HERE
 });
